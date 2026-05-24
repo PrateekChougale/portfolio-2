@@ -1,0 +1,24 @@
+<section id="experience" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">03. Experience</span>
+      <h2 class="section-title">My <span class="gradient-text">Professional Journey</span></h2>
+    </div>
+    <div class="timeline">
+      @for (job of jobs; track job.date) {
+        <div class="timeline-item">
+          <div class="timeline-marker"><div class="timeline-dot" [class.active]="job.active"></div></div>
+          <div class="timeline-card">
+            <div class="timeline-date">{{ job.date }}</div>
+            <h3>{{ job.role }}</h3>
+            <p class="timeline-company">{{ job.company }}</p>
+            <ul>@for (item of job.items; track $index) { <li>{{ item }}</li> }</ul>
+            <div class="timeline-tags">
+              @for (tag of job.tags; track tag) { <span>{{ tag }}</span> }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<div class="chatbot" [class.open]="isOpen">
+  <!-- Chat Window -->
+  <div class="chatbot-window">
+    <div class="chatbot-header">
+      <div class="header-info">
+        <div class="avatar-sm">PC</div>
+        <div>
+          <div class="header-name">Prateek's Assistant</div>
+          <div class="header-status"><span class="status-dot"></span> Online</div>
+        </div>
+      </div>
+      <button class="chatbot-close" (click)="close()">✕</button>
+    </div>
+
+    <div class="chatbot-messages">
+      @for (msg of messages; track $index) {
+        <div class="chat-message" [class.user]="msg.isUser" [class.bot]="!msg.isUser">
+          @if (msg.isTyping) {
+            <div class="chat-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>
+          } @else {
+            <div class="chat-bubble" [innerHTML]="formatText(msg.text)"></div>
+          }
+        </div>
+      }
+    </div>
+
+    @if (showSuggestions) {
+      <div class="chatbot-suggestions">
+        @for (s of suggestions; track s.label) {
+          <button class="suggestion-chip" (click)="askSuggestion(s.question)">{{ s.label }}</button>
+        }
+      </div>
+    }
+
+    <form class="chatbot-input-area" (ngSubmit)="sendMessage()">
+      <input class="chatbot-input" [(ngModel)]="userInput" name="chatInput" placeholder="Ask me anything..." autocomplete="off">
+      <button type="submit" class="chatbot-send">▸</button>
+    </form>
+  </div>
+
+  <!-- Toggle Button -->
+  <button class="chatbot-toggle" (click)="toggle()">
+    @if (!isOpen) { <span class="toggle-icon">💬</span> }
+    @else { <span class="toggle-icon">✕</span> }
+    @if (showBadge) { <span class="chatbot-badge">1</span> }
+  </button>
+</div>

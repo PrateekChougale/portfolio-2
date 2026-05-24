@@ -1,0 +1,17 @@
+<nav [class.scrolled]="isScrolled">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" (click)="scrollTo('hero', $event)">
+      <span class="logo-bracket">&lt;</span>PC<span class="logo-bracket"> /&gt;</span>
+    </a>
+    <div class="nav-links" [class.open]="isMenuOpen">
+      <a class="nav-link" (click)="scrollTo('about', $event)">About</a>
+      <a class="nav-link" (click)="scrollTo('skills', $event)">Skills</a>
+      <a class="nav-link" (click)="scrollTo('experience', $event)">Experience</a>
+      <a class="nav-link" (click)="scrollTo('projects', $event)">Projects</a>
+      <a class="nav-link" (click)="scrollTo('contact', $event)">Contact</a>
+    </div>
+    <button class="nav-toggle" (click)="toggleMenu()" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>

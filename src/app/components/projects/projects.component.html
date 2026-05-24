@@ -1,0 +1,29 @@
+<section id="projects" class="section section-alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">04. Projects</span>
+      <h2 class="section-title">Featured <span class="gradient-text">Test Automation Projects</span></h2>
+    </div>
+    <div class="projects-grid">
+      @for (p of projects; track p.name) {
+        <div class="project-card" [class.featured]="p.featured">
+          @if (p.featured) { <div class="project-badge">Featured Project</div> }
+          <div class="project-icon">{{ p.icon }}</div>
+          <h3>{{ p.name }}</h3>
+          <p>{{ p.desc }}</p>
+          <div class="project-tech">
+            @for (t of p.tech; track t) { <span>{{ t }}</span> }
+          </div>
+          @if (p.metrics.length) {
+            <div class="project-metrics">
+              @for (m of p.metrics; track m.label) {
+                <div class="metric"><span class="metric-value">{{ m.value }}</span><span class="metric-label">{{ m.label }}</span></div>
+              }
+            </div>
+          }
+          <div class="project-links"><a href="#" class="project-link">⌨ View Code</a></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

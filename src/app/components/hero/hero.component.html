@@ -1,0 +1,34 @@
+<section id="hero" class="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span> Available for opportunities</div>
+    <h1 class="hero-name">Hi, I'm <span class="gradient-text">Prateek Chougale</span></h1>
+    <div class="hero-title-wrapper">
+      <span>I'm a&nbsp;</span>
+      <span class="hero-typed">{{ typedText }}</span>
+      <span class="cursor">|</span>
+    </div>
+    <p class="hero-desc">Passionate about building robust test automation frameworks, catching bugs before they reach production, and ensuring software quality at scale.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary" (click)="scrollTo('projects', $event)">▸ View My Work</a>
+      <a href="#contact" class="btn btn-outline" (click)="scrollTo('contact', $event)">✉ Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+      @for (stat of stats; track stat.label; let i = $index) {
+        @if (i > 0) { <div class="stat-divider"></div> }
+        <div class="stat">
+          <span class="stat-value">{{ stat.value }}<span class="stat-suffix">{{ stat.suffix }}</span></span>
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="code-window">
+      <div class="code-header">
+        <div class="code-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+        <span class="code-title">TestAutomation.java</span>
+      </div>
+      <pre class="code-body"><code>@for (line of codeLines; track $index) {<div [innerHTML]="line" class="code-line"></div>}</code></pre>
+    </div>
+  </div>
+</section>

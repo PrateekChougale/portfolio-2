@@ -1,0 +1,25 @@
+<section id="skills" class="section section-alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">02. Skills & Tools</span>
+      <h2 class="section-title">My <span class="gradient-text">Testing Arsenal</span></h2>
+    </div>
+    <div class="skills-categories">
+      @for (cat of categories; track cat.title) {
+        <div class="skill-category">
+          <h3 class="skill-cat-title"><span>{{ cat.icon }}</span> {{ cat.title }}</h3>
+          <div class="skill-cards">
+            @for (skill of cat.skills; track skill.name) {
+              <div class="skill-card">
+                <div class="skill-icon">{{ skill.abbr }}</div>
+                <div class="skill-name">{{ skill.name }}</div>
+                <div class="skill-bar"><div class="skill-fill" [style.width.%]="skill.fill"></div></div>
+                <div class="skill-level">{{ skill.level }}</div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
